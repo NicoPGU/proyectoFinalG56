@@ -6,13 +6,14 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import { Container } from 'react-bootstrap';
 
+const { VITE_API_URL } = import.meta.env;
 function Homepage() {
   const [propiedades, setPropiedades] = useState([]);
 
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/properties/propiedades');
+        const response = await axios.get(`${VITE_API_URL}/api/properties/propiedades`);
         setPropiedades(response.data);
       } catch (error) {
         console.error('Error al obtener las propiedades:', error);

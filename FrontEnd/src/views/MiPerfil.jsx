@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import NavbarLogged from '../components/NavbarLogged';
 import axios from 'axios';
 
+const { VITE_API_URL } = import.meta.env;
 function MiPerfil() {
   const [nombreUsuario, setNombreUsuario] = useState('');
 
@@ -13,7 +14,7 @@ function MiPerfil() {
     
     if (token) {
       // Hacer una solicitud al backend para obtener los datos del usuario
-      axios.get('http://localhost:3000/api/users/me', {
+      axios.get(`${VITE_API_URL}/api/users/me`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

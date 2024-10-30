@@ -17,6 +17,7 @@ const IngresoPropiedad = () => {
   const [imagenesURL, setImagenesURL] = useState([]); // Un array para almacenar las URLs de Firebase
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const { VITE_API_URL } = import.meta.env;
 
   // Función para manejar la selección de múltiples imágenes
   const manejarImagenes = (e) => {
@@ -59,7 +60,7 @@ const IngresoPropiedad = () => {
         imagenes: urls  // Enviar las URLs de las imágenes como un array
       };
 
-      await axios.post('http://localhost:3000/api/properties', propiedad, {
+      await axios.post(`${VITE_API_URL}:3000/api/properties`, propiedad, {
         headers: {
           'Authorization': `Bearer ${token}`  // Enviar el token en la cabecera
         }

@@ -9,6 +9,7 @@ const FormularioRegistro = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const { VITE_API_URL } = import.meta.env;
 
   const validarInput = async (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const FormularioRegistro = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/users/register', usuario);
+      const response = await axios.post(`${VITE_API_URL}/api/users/register`, usuario);
       console.log('Usuario registrado en el backend:', response.data);
       setSuccess(true);
       setNombre("");

@@ -9,6 +9,7 @@ import '../css/DetallePublicacion.css';
 const DetallePublicacion = ({ propiedades_id }) => {
   const [publicacion, setPublicacion] = useState(null);  // State to hold the publication data
   const [error, setError] = useState(null);  // State to hold error
+  const { VITE_API_URL } = import.meta.env;
 
   useEffect(() => {
     if (!propiedades_id || isNaN(parseInt(propiedades_id))) {
@@ -18,7 +19,7 @@ const DetallePublicacion = ({ propiedades_id }) => {
   
     const fetchPublicacion = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/properties/${propiedades_id}`);
+        const response = await axios.get(`${VITE_API_URL}/api/properties/${propiedades_id}`);
         setPublicacion(response.data);
       } catch (error) {
         console.error("Error al cargar la publicación:", error);

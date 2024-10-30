@@ -4,6 +4,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import axios from 'axios';
 import '../css/editarPropiedades.css';
 
+const { VITE_API_URL } = import.meta.env;
 const EditarPropiedad = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ const EditarPropiedad = () => {
     useEffect(() => {
         const fetchPropiedad = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/properties/${id}`);
+                const response = await axios.get(`${VITE_API_URL}/api/properties/${id}`);
                 setPropiedad(response.data);
             } catch (error) {
                 console.error("Error al cargar la propiedad:", error);
@@ -68,7 +69,7 @@ const EditarPropiedad = () => {
         };
 
         try {
-            const response = await axios.put(`http://localhost:3000/api/properties/${id}`, updatedData, {
+            const response = await axios.put(`${VITE_API_URL}/api/properties/${id}`, updatedData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 },

@@ -38,16 +38,3 @@ function App() {
 
 export default App
 
-//texto modificado <NavbarHome />
-  //    <FormularioRegistro/>
-  //    <FormularioAcceso/>
-  //    <IngresoPropiedad/>
-  //    <CardList/>
-  //    <Footer/>
-
-  // Para el import: import NavbarHome from './components/NavbarHome';
-// import FormularioRegistro from './components/FormularioRegistro';
-// import FormularioAcceso from './components/FormularioAcceso';
-// import IngresoPropiedad from './components/IngresoPropiedad';
-// import CardList from './components/CardList';
-// import Footer from './components/Footer';

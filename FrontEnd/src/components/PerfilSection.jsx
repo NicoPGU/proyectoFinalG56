@@ -8,6 +8,8 @@ const PerfilSection = ({ nombreUsuario }) => {
   const [imagenPerfil, setImagenPerfil] = useState(null);
   const [propiedades, setPropiedades] = useState([]);
 
+  const { VITE_API_URL } = import.meta.env;
+
   // Función para manejar la carga de la imagen de perfil
   const manejarCargaImagenPerfil = (e) => {
     setImagenPerfil(URL.createObjectURL(e.target.files[0]));
@@ -18,7 +20,7 @@ const PerfilSection = ({ nombreUsuario }) => {
     const obtenerPropiedades = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3000/api/properties/mis-propiedades', {
+        const response = await axios.get(`${VITE_API_URL}/api/properties/mis-propiedades`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log('Propiedades obtenidas:', response.data);
@@ -36,7 +38,7 @@ const PerfilSection = ({ nombreUsuario }) => {
   const eliminarPropiedad = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:3000/api/properties/${id}`, {
+      await axios.delete(`${VITE_API_URL}/api/properties/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setPropiedades(propiedades.filter((propiedad) => propiedad.propiedades_id !== id));

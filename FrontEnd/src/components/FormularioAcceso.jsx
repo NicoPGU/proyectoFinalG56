@@ -11,6 +11,7 @@ const FormularioAcceso = () => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();  // Hook para redirigir al usuario
+  const { VITE_API_URL } = import.meta.env;
 
   // Función para manejar el envío del formulario
   const validarAcceso = async (e) => {
@@ -28,7 +29,7 @@ const FormularioAcceso = () => {
 
     try {
       // Enviar los datos de inicio de sesión al backend
-      const response = await axios.post('http://localhost:3000/api/users/login', {
+      const response = await axios.post(`${VITE_API_URL}:3000/api/users/login`, {
         email,
         password
       });

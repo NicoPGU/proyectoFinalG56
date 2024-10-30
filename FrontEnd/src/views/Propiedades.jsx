@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import NavbarHome from '../components/NavbarHome';
 import NavbarLogged from '../components/NavbarLogged';
 
+const { VITE_API_URL } = import.meta.env;
 const PropiedadesPublicas = () => {
   const [propiedades, setPropiedades] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -14,7 +15,7 @@ const PropiedadesPublicas = () => {
     const verificarAutenticacion = async () => {
       try {
         // Solicitud al backend para verificar autenticación usando el middleware verifyToken
-        await axios.get('http://localhost:3000/api/users/me', {
+        await axios.get(`${VITE_API_URL}/api/users/me`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`, // Token en el encabezado
           },
@@ -27,7 +28,7 @@ const PropiedadesPublicas = () => {
 
     const obtenerPropiedadesPublicas = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/properties/propiedades');
+        const response = await axios.get(`${VITE_API_URL}/api/properties/propiedades`);
         setPropiedades(response.data);
       } catch (error) {
         console.error('Error al obtener las propiedades:', error.response ? error.response.data : error.message);
