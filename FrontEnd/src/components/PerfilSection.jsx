@@ -50,19 +50,19 @@ const PerfilSection = ({ nombreUsuario }) => {
   return (
     <div className="perfil-section">
       <div className="header-perfil">
-        {/* Imagen de perfil */}
+       
         <div className="imagen-perfil">
           <input type="file" accept="image/*" onChange={manejarCargaImagenPerfil} />
           {imagenPerfil && <img src={imagenPerfil} alt="Imagen de perfil" />}
         </div>
 
-        {/* Datos del usuario */}
+        
         <div className="datos-usuario">
           <h2>{nombreUsuario || "nombreUsuario"}</h2>
         </div>
       </div>
 
-      {/* Publicaciones del usuario con opciones */}
+      
       <div className="publicaciones">
   <h3>Mis Propiedades</h3>
   {propiedades.length > 0 ? (
@@ -87,7 +87,7 @@ const PerfilSection = ({ nombreUsuario }) => {
     <p>No hay publicaciones</p>
   )}
 </div>
-      {/* Botón para agregar una nueva publicación */}
+      
       <div className="agregar-publicacion">
         <Link to="/carga-publicacion">
           <button className="btn-agregar">Agregar Publicación</button>

@@ -15,7 +15,7 @@ console.log('propiedades_id:', propiedades_id);
       <NavbarHome/>
       <div className='containerSection fullpage'>
       <MenuLateral/>
-      {/* Pass the propiedades_id to DetallePublicacion */}
+    
       <DetallePublicacion propiedades_id={propiedades_id}/>
       </div>
       <Footer/>

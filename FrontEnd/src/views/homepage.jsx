@@ -27,7 +27,7 @@ function Homepage() {
       <NavbarHome />
       <div className='containerSection min-vh-100'>
         <MenuLateral />
-        <CardList propiedades={propiedades} /> {/* Pasamos las propiedades al CardList */}
+        <CardList propiedades={propiedades} /> 
       </div>
       <Container className='min-vh-10'/>
       <Footer />

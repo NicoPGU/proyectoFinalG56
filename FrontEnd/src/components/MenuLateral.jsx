@@ -8,23 +8,23 @@ import { Link, useNavigate } from 'react-router-dom';
 const MenuLateral = () => {
   const navigate = useNavigate();
 
-  // Función para manejar la redirección al hacer clic en "Mi Perfil"
+
   const manejarClickPerfil = () => {
-    const token = localStorage.getItem('token');  // Verificar si hay un token almacenado
+    const token = localStorage.getItem('token'); 
     if (token) {
-      navigate('/mi-perfil');  // Redirigir a la vista de perfil si el token está presente
+      navigate('/mi-perfil');  
     } else {
-      navigate('/inicio-sesion');  // Redirigir a la vista de inicio de sesión si no hay token
+      navigate('/inicio-sesion');  
     }
   };
-    // Función para manejar el click en "Publicar una Propiedad"
+   
     const manejarClickPublicacion = () => {
-      const token = localStorage.getItem('token'); // Verificamos si hay token de autenticación
+      const token = localStorage.getItem('token'); 
       if (token) {
-        // Si el usuario está autenticado, redirigimos a la página de carga de propiedad
+        
         navigate('/carga-publicacion');
       } else {
-        // Si no está autenticado, redirigimos a la página de inicio de sesión
+      
         navigate('/inicio-sesion');
       }
     };
@@ -53,7 +53,7 @@ const MenuLateral = () => {
         <FontAwesomeIcon icon={faUser} /> 
         <span>Mi Perfil</span>
       </div>
-      <div className="menu-item" onClick={manejarClickPublicacion}> {/* Manejar el click */}
+      <div className="menu-item" onClick={manejarClickPublicacion}> 
         <FontAwesomeIcon icon={faUpload} />
         <span>Publica una Propiedad</span>
       </div>

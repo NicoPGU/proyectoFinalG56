@@ -20,7 +20,7 @@ function NavbarHome() {
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto"> {/* ms-auto empuja el contenido hacia la derecha */}
+          <Nav className="ms-auto"> 
             <Link to="/inicio-sesion">
               <Button variant="outline-primary" className="me-4 rounded-button">Acceder</Button>
             </Link>

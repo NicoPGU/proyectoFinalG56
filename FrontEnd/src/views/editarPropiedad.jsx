@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Importar funciones de Firebase Storage
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"; 
 import axios from 'axios';
 import '../css/editarPropiedades.css';
 
@@ -17,7 +17,7 @@ const EditarPropiedad = () => {
         descripcion: '',
         imagen: '',
     });
-    const [file, setFile] = useState(null); // Nuevo estado para manejar el archivo de imagen
+    const [file, setFile] = useState(null); 
 
     useEffect(() => {
         const fetchPropiedad = async () => {
@@ -34,7 +34,7 @@ const EditarPropiedad = () => {
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
         if (type === 'file') {
-            setFile(files[0]); // Guardamos el archivo en el estado
+            setFile(files[0]); 
         } else {
             setPropiedad({
                 ...propiedad,
@@ -46,15 +46,15 @@ const EditarPropiedad = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        let downloadURL = propiedad.imagen; // Mantener la URL existente si no se cambia la imagen
+        let downloadURL = propiedad.imagen; 
 
         if (file) {
-            // Configurar Firebase Storage
+            
             const storage = getStorage();
             const storageRef = ref(storage, `imagenes/${file.name}`);
 
             try {
-                // Subir la imagen a Firebase Storage
+                
                 await uploadBytes(storageRef, file);
                 downloadURL = await getDownloadURL(storageRef);
             } catch (error) {
@@ -65,7 +65,7 @@ const EditarPropiedad = () => {
 
         const updatedData = {
             ...propiedad,
-            imagen: downloadURL ? [downloadURL] : propiedad.imagen, // Usar la nueva URL o la existente
+            imagen: downloadURL ? [downloadURL] : propiedad.imagen, 
         };
 
         try {

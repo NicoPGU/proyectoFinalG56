@@ -6,7 +6,7 @@ import './MyCard.css';
 const MyCard = ({ propiedades_id, title, location, price, imagen }) => {
   console.log('Props en MyCard:', { propiedades_id, title, location, price, imagen });
 
-  const imagenURL = Array.isArray(imagen) ? imagen[0] : imagen; // Verificamos si es un array o una URL
+  const imagenURL = Array.isArray(imagen) ? imagen[0] : imagen; 
 
   return (
     <Card style={{ width: '18rem' }}>

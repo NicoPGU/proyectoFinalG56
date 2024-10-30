@@ -11,7 +11,7 @@ form {
 }
 
 
-/* Estilo para las etiquetas */
+
 label {
     display: block;
     font-weight: bold;
@@ -19,7 +19,7 @@ label {
     color: #333;
 }
 
-/* Estilo para los inputs de texto y número */
+
 input[type="text"],
 input[type="number"],
 textarea {
@@ -32,7 +32,7 @@ textarea {
     font-size: 16px;
 }
 
-/* Estilo para el botón */
+
 button[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -50,13 +50,13 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* Estilo para el campo de carga de imagen */
+
 input[type="file"] {
     margin-top: 5px;
     margin-bottom: 15px;
 }
 
-/* Estilo para el encabezado */
+
 h2 {
     text-align: center;
     color: #333;

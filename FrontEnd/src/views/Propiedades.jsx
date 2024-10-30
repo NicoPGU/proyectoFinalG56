@@ -14,15 +14,15 @@ const PropiedadesPublicas = () => {
   useEffect(() => {
     const verificarAutenticacion = async () => {
       try {
-        // Solicitud al backend para verificar autenticación usando el middleware verifyToken
+       
         await axios.get(`${VITE_API_URL}/api/users/me`, {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`, // Token en el encabezado
+            Authorization: `Bearer ${localStorage.getItem('token')}`, 
           },
         });
-        setIsAuthenticated(true); // Usuario autenticado
+        setIsAuthenticated(true); 
       } catch (error) {
-        setIsAuthenticated(false); // Usuario no autenticado
+        setIsAuthenticated(false); 
       }
     };
 
@@ -41,7 +41,7 @@ const PropiedadesPublicas = () => {
 
   return (
     <div className="main-container">
-      {/* Navbar: Mostrar según autenticación basada en verifyToken */}
+     
       {isAuthenticated ? <NavbarLogged /> : <NavbarHome />}
 
       <div className="content">
@@ -49,7 +49,7 @@ const PropiedadesPublicas = () => {
         <CardList propiedades={propiedades} />
       </div>
 
-      {/* Footer siempre en la parte inferior */}
+      
       <Footer />
     </div>
   );

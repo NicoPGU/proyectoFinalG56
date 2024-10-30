@@ -1,13 +1,13 @@
 .details-container {
-    background-color: #f8f9fa; /* Color de fondo suave */
+    background-color: #f8f9fa; 
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   }
   
   .img-fluid {
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra en la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
   h2 {
@@ -29,7 +29,7 @@
   
   .icon {
     font-size: 1.2em;
-    color: #007bff; /* Color de los íconos */
+    color: #007bff; 
     margin-right: 5px;
   }
   
