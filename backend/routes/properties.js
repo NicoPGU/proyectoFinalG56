@@ -81,11 +81,17 @@ router.get('/:id', async (req, res) => {
 
 // Crear una nueva propiedad (Create)
 router.post('/', verifyToken, async (req, res) => {
-  const { imagenes, titulo, precio, comuna, habitaciones, banos, descripcion } = req.body;
+  let { imagenes, titulo, precio, comuna, habitaciones, banos, descripcion } = req.body;
+
+  // Si `imagenes` es un array, tomamos solo la primera URL
+  if (Array.isArray(imagenes)) {
+    imagenes = imagenes[0]; // Esto toma solo la primera URL del array
+  }
+
   try {
     const result = await pool.query(
       'INSERT INTO propiedades (usuario_id, imagen, titulo, precio, comuna, habitaciones, banos, descripcion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-      [req.userId, JSON.stringify(imagenes), titulo, precio, comuna, habitaciones, banos, descripcion]
+      [req.userId, imagenes, titulo, precio, comuna, habitaciones, banos, descripcion]
     );
     res.json(result.rows[0]);
   } catch (error) {
@@ -93,6 +99,7 @@ router.post('/', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Error al crear la propiedad', detalle: error.message });
   }
 });
+
 
 // Eliminar una propiedad (Delete)
 router.delete('/:id', verifyToken, async (req, res) => {
