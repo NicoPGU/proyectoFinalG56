@@ -5,7 +5,7 @@ let server;
 
 beforeAll((done) => {
    
-    server = app.listen(PORT, () => {
+    server = app.listen(process.env.PORT || 3000, () => {
         done();
     });
 });
