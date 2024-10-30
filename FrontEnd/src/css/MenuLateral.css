@@ -1,0 +1,30 @@
+.menu-lateral {
+    width: 200px; 
+    background-color: #0B74D4; 
+    padding: 20px; 
+    border-right: 1px solid #ccc; 
+  }
+  
+  .menu-lateral h2 {
+    font-size: 1.5em; 
+    margin-bottom: 20px; 
+  }
+  
+  .menu-item {
+    display: flex; 
+    align-items: center; 
+    padding: 10px; 
+    cursor: pointer; 
+    color: white;
+  }
+  
+  .menu-item:hover {
+    background-color: #ffffff; 
+    border-radius: 10px;
+    color: #0B74D4;
+  }
+  
+  .menu-item span {
+    margin-left: 10px; 
+  }
+  

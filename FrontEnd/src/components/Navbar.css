@@ -1,0 +1,40 @@
+.rounded-button {
+    border-radius: 20px; 
+}
+
+
+/* Navbar.css */
+
+.navbar-custom {
+    width: 100%; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 20px; 
+    box-sizing: border-box;
+  }
+  
+  .navbar-custom .navbar-brand {
+    margin-left: 0; 
+  }
+  
+  .navbar-custom .navbar-collapse {
+    flex-grow: 0; 
+  }
+  
+  .navbar-custom .ms-auto {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-custom .rounded-button {
+    border-radius: 20px; 
+    padding: 5px 15px; 
+  }
+  
+  .navbarflex {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  

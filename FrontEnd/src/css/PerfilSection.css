@@ -1,0 +1,191 @@
+/* Contenedor principal para ocupar toda la altura */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.containerSectionPerfil {
+  max-width: 800px;
+  margin: auto; /* Centra horizontalmente */
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  justify-content: center; /* Centra verticalmente */
+}
+
+/* Título de sesión */
+.containerSectionPerfil h2 {
+  font-size: 22px;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 20px; /* Espaciado más cómodo entre título y tarjeta */
+}
+
+/* Contenedor del perfil */
+.perfil-section {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 600px;
+}
+/* Estilo para el encabezado del perfil, que incluye imagen y datos */
+.header-perfil {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.imagen-perfil {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagen-perfil input[type="file"] {
+  display: none; /* Ocultar el input */
+}
+
+.imagen-perfil img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #007bff;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.imagen-perfil::before {
+  content: 'Cambiar Imagen';
+  font-size: 12px;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+.datos-usuario {
+  text-align: left;
+  margin-top: 10px; 
+}
+
+.datos-usuario h2 {
+  font-size: 24px;
+  color: #333;
+  font-weight: 500;
+}
+
+.datos-usuario h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* Sección para las imágenes de las propiedades */
+.imagenes-propiedades {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.imagenes-propiedades h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.propiedad-imagen {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 10px 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.imagenes-propiedades p {
+  margin-top: 0;
+  font-size: 16px;
+  color: #777;
+}
+
+/* Estilo para la sección de publicaciones */
+.publicaciones {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.publicaciones h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.publicacion {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  justify-content: space-between; /* Alinea los elementos extremos */
+  width: 100%; /* Asegura que ocupe el ancho completo */
+}
+
+
+.publicacion-imagen {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.opciones {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; /* Empuja las opciones hacia la derecha */
+}
+
+.opciones button {
+  width: 80px; /* Tamaño fijo para uniformidad */
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.opciones button:hover {
+  background-color: #0056b3;
+}
+
+
+.agregar-publicacion {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.btn-agregar {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+  background-color: #218838;
+}

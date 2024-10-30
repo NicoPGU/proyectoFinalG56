@@ -1,0 +1,50 @@
+.IngresoPropiedadSection {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.IngresoPropiedadSection form {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.IngresoPropiedadSection .form-control {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.IngresoPropiedadSection .form-control::placeholder {
+    color: #6c757d;
+}
+
+.IngresoPropiedadSection .form-label {
+    font-weight: bold;
+}
+
+.IngresoPropiedadSection .btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.IngresoPropiedadSection .btn-primary:hover {
+    background-color: #0056b3;
+}
