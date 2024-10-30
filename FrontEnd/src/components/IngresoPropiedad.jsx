@@ -60,7 +60,7 @@ const IngresoPropiedad = () => {
         imagenes: urls  // Enviar las URLs de las imágenes como un array
       };
 
-      await axios.post(`${VITE_API_URL}:3000/api/properties`, propiedad, {
+      await axios.post(`${VITE_API_URL}/api/properties`, propiedad, {
         headers: {
           'Authorization': `Bearer ${token}`  // Enviar el token en la cabecera
         }
