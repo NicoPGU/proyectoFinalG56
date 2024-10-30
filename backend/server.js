@@ -4,3 +4,6 @@ const app = require('./index');
 app.listen(process.env.PORT || 3000, () => {
   console.log('Servidor en funcionamiento en el puerto' + (process.env.PORT || 3000));
 });
+
+
+//http://localhost:5173/
