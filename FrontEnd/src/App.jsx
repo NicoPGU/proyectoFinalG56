@@ -7,7 +7,6 @@ import Homepage from './views/homepage.jsx';
 import HomepageLogged from './views/HomepageLogged.jsx';
 import InicioSesion from './views/InicioSesion.jsx';
 import MiPerfil from './views/MiPerfil.jsx';
-import MisPublicaciones from './views/MisPublicaciones.jsx';
 import RegistroUsuarios from './views/RegistroUsuarios.jsx';
 import VistaDetallePublicacion from './views/VistaDetallePublicacion.jsx';
 import Propiedades from './views/Propiedades.jsx';
@@ -25,7 +24,6 @@ function App() {
       <Route path="/registro" element={<RegistroUsuarios />} />
       <Route path="/home-logged" element={<HomepageLogged />} />
       <Route path="/mi-perfil" element={<MiPerfil />} />
-      <Route path="/mis-publicaciones" element={<MisPublicaciones />} />
       <Route path="/carga-publicacion" element={<CargaPublicacion />} />
       <Route path="/detalle-publicacion/:propiedades_id" element={<VistaDetallePublicacion />} />
       <Route path="/propiedades" element={<Propiedades />} />
