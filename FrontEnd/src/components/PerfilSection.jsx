@@ -69,7 +69,8 @@ const PerfilSection = ({ nombreUsuario }) => {
     propiedades.map((propiedad) => (
       <div key={propiedad.propiedades_id} className="publicacion">
         <img
-          src={propiedad.imagen[0] || propiedad.imagen} // Ajusta según la estructura real de la URL
+          src={propiedad.imagen}
+          // Ajusta según la estructura real de la URL
           alt={`Propiedad ${propiedad.propiedades_id}`}
           className="publicacion-imagen"
         />
