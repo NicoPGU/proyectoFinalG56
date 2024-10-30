@@ -1,9 +1,9 @@
 
 import React, { useState } from 'react';
 import { Form, Button, Col, Row, Alert } from 'react-bootstrap';
-import axios from 'axios';  // Importar Axios
-import { storage } from '../firebase';  // Importar Firebase Storage
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";  // Funciones para subir imágenes
+import axios from 'axios';  
+import { storage } from '../firebase';  
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";  
 import '../css/IngresoPropiedad.css';
 
 const IngresoPropiedad = () => {
@@ -13,18 +13,18 @@ const IngresoPropiedad = () => {
   const [habitaciones, setHabitaciones] = useState("");
   const [banos, setBanos] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [imagenes, setImagenes] = useState([]);  // Un array para almacenar las imágenes seleccionadas
-  const [imagenesURL, setImagenesURL] = useState([]); // Un array para almacenar las URLs de Firebase
+  const [imagenes, setImagenes] = useState([]);  
+  const [imagenesURL, setImagenesURL] = useState([]); 
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const { VITE_API_URL } = import.meta.env;
 
-  // Función para manejar la selección de múltiples imágenes
+  
   const manejarImagenes = (e) => {
-    setImagenes([...e.target.files]);  // Guardar múltiples imágenes seleccionadas
+    setImagenes([...e.target.files]);  
   };
 
-  // Función para manejar el envío del formulario
+  
   const manejarEnvio = async (e) => {
     e.preventDefault();
 
@@ -35,21 +35,21 @@ const IngresoPropiedad = () => {
 
     setError(false);
 
-    const urls = [];  // Array para almacenar las URLs de las imágenes
+    const urls = [];  
     try {
       for (let i = 0; i < imagenes.length; i++) {
         const imagenRef = ref(storage, `imagenes/${imagenes[i].name}`);
         await uploadBytes(imagenRef, imagenes[i]);
         const url = await getDownloadURL(imagenRef);
-        urls.push(url);  // Almacenar la URL de cada imagen
+        urls.push(url);  
       }
 
-      setImagenesURL(urls);  // Guardar todas las URLs de las imágenes
+      setImagenesURL(urls);  
 
-      // Obtener el token JWT del almacenamiento local (o de donde se esté guardando)
-      const token = localStorage.getItem('token');  // Asegúrate de que 'token' es la clave correcta
       
-      // Datos de la propiedad que se enviarán al backend, incluyendo las URLs de las imágenes
+      const token = localStorage.getItem('token');  
+      
+      
       const propiedad = {
         titulo,
         precio,
@@ -57,12 +57,12 @@ const IngresoPropiedad = () => {
         habitaciones,
         banos,
         descripcion,
-        imagenes: urls  // Enviar las URLs de las imágenes como un array
+        imagenes: urls  
       };
 
       await axios.post(`${VITE_API_URL}/api/properties`, propiedad, {
         headers: {
-          'Authorization': `Bearer ${token}`  // Enviar el token en la cabecera
+          'Authorization': `Bearer ${token}`  
         }
       });
       setSuccess(true);
@@ -159,7 +159,7 @@ const IngresoPropiedad = () => {
         <Form.Control
           type="file"
           multiple
-          onChange={manejarImagenes}  // Permitir seleccionar múltiples imágenes
+          onChange={manejarImagenes}  
         />
       </Form.Group>
 

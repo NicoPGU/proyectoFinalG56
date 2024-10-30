@@ -2,7 +2,7 @@
 import React from 'react';
 
 const PropertyCard = ({ propiedad }) => {
-  // Verificamos si hay imágenes, en caso contrario mostramos una imagen por defecto.
+
   const imagenURL = propiedad.imagen && propiedad.imagen.length > 0 ? JSON.parse(propiedad.imagen)[0] : '/default-image.jpg'; // Mostrar la primera imagen
   
   return (

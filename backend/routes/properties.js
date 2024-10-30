@@ -6,7 +6,7 @@ const path = require('path');
 const multer = require('multer');
 
 
-// Configuración de multer para almacenar las imágenes en una carpeta específica
+// Configuración de multer 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
       cb(null, 'uploads/'); // Carpeta donde se guardarán las imágenes
@@ -18,11 +18,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Ruta para subir una imagen y actualizar la propiedad
+// Ruta para actualizar la propiedad
 router.put('/:id', verifyToken, async (req, res) => {
   let { titulo, precio, comuna, habitaciones, banos, descripcion, imagen } = req.body;
 
-  // Si `imagen` es un array, toma solo el primer elemento
+  
   if (Array.isArray(imagen)) {
       imagen = imagen[0];
   }
@@ -91,9 +91,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', verifyToken, async (req, res) => {
   let { imagenes, titulo, precio, comuna, habitaciones, banos, descripcion } = req.body;
 
-  // Si `imagenes` es un array, tomamos solo la primera URL
+  
   if (Array.isArray(imagenes)) {
-    imagenes = imagenes[0]; // Esto toma solo la primera URL del array
+    imagenes = imagenes[0]; 
   }
 
   try {

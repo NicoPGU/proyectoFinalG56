@@ -51,7 +51,7 @@ router.get('/', async (req, res) => {
   res.json(result.rows);
 });
 
-// Obtener un usuario específico por ID (Read) con manejo de 'me'
+// Obtener un usuario específico por ID (Read)
 router.get('/:id', verifyToken, async (req, res) => {
   const userId = req.params.id === 'me' ? req.userId : req.params.id;
   const result = await pool.query('SELECT * FROM usuarios WHERE id_usuario = $1', [userId]);

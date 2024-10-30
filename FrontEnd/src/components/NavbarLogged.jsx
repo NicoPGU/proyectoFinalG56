@@ -8,11 +8,11 @@ function NavbarLogged() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        localStorage.removeItem('token'); // Clear the token on logout
-        navigate('/inicio-sesion'); // Redirect to login page
+        localStorage.removeItem('token'); 
+        navigate('/inicio-sesion'); 
     };
 
-    // Check if user is logged in based on token
+    
     const isAuthenticated = !!localStorage.getItem('token');
 
     return (

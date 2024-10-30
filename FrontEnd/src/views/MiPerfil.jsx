@@ -13,14 +13,14 @@ function MiPerfil() {
     const token = localStorage.getItem('token');
     
     if (token) {
-      // Hacer una solicitud al backend para obtener los datos del usuario
+      
       axios.get(`${VITE_API_URL}/api/users/me`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       })
       .then(response => {
-        setNombreUsuario(response.data.nombre); // Asignar el nombre del usuario
+        setNombreUsuario(response.data.nombre); 
       })
       .catch(error => {
         console.error('Error al obtener los datos del usuario:', error);

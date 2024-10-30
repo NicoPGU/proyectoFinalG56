@@ -4,18 +4,18 @@ import '../css/PerfilSection.css';
 import axios from 'axios';
 
 const PerfilSection = ({ nombreUsuario }) => {
-  // Estados para almacenar la imagen de perfil y las propiedades del usuario
+  
   const [imagenPerfil, setImagenPerfil] = useState(null);
   const [propiedades, setPropiedades] = useState([]);
 
   const { VITE_API_URL } = import.meta.env;
 
-  // Función para manejar la carga de la imagen de perfil
+  
   const manejarCargaImagenPerfil = (e) => {
     setImagenPerfil(URL.createObjectURL(e.target.files[0]));
   };
 
-  // Función para obtener las propiedades del usuario autenticado
+  
   useEffect(() => {
     const obtenerPropiedades = async () => {
       try {
@@ -34,7 +34,7 @@ const PerfilSection = ({ nombreUsuario }) => {
   }, []);
   
 
-  // Función para eliminar una propiedad
+  
   const eliminarPropiedad = async (id) => {
     try {
       const token = localStorage.getItem('token');
@@ -70,7 +70,7 @@ const PerfilSection = ({ nombreUsuario }) => {
       <div key={propiedad.propiedades_id} className="publicacion">
         <img
           src={propiedad.imagen}
-          // Ajusta según la estructura real de la URL
+          
           alt={`Propiedad ${propiedad.propiedades_id}`}
           className="publicacion-imagen"
         />

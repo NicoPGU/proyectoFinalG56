@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { Button, Col, Form, Row, Alert } from 'react-bootstrap';
-import axios from 'axios';  // Importar Axios para la conexión con el backend
-import { useNavigate } from 'react-router-dom';  // Importar useNavigate para redirección
+import axios from 'axios';  
+import { useNavigate } from 'react-router-dom';  
 import '../css/FormularioAcceso.css';
 
 const FormularioAcceso = () => {
@@ -10,15 +10,15 @@ const FormularioAcceso = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();  // Hook para redirigir al usuario
+  const navigate = useNavigate();  
   const { VITE_API_URL } = import.meta.env;
 
-  // Función para manejar el envío del formulario
+  
   const validarAcceso = async (e) => {
     e.preventDefault();
     console.log("Formulario enviado");
 
-    // Validar que el email y password estén completos
+   
     if (!email || !password) {
       setError(true);
       setErrorMessage("Por favor, completa todos los campos");
@@ -28,21 +28,21 @@ const FormularioAcceso = () => {
     setError(false);
 
     try {
-      // Enviar los datos de inicio de sesión al backend
+      
       const response = await axios.post(`${VITE_API_URL}/api/users/login`, {
         email,
         password
       });
 
-      // Guardar el token en el localStorage
+      
       const { token } = response.data;
       localStorage.setItem('token', token);
 
-      // Redirigir al usuario a la vista de HomepageLogged
+      
       navigate('/home-logged');
 
     } catch (err) {
-      // Mostrar mensaje de error si el inicio de sesión falla
+      
       console.error('Error en el inicio de sesión:', err);
       setError(true);
       setErrorMessage("Credenciales incorrectas");

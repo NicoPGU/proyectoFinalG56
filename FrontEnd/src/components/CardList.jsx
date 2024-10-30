@@ -1,10 +1,10 @@
 
 import React from 'react';
-import MyCard from './Card'; // Importamos el componente MyCard
+import MyCard from './Card'; 
 import '../css/CardList.css'
 
 const CardList = ({ propiedades }) => {
-  console.log('Propiedades en CardList:', propiedades); // Verificar si se pasa correctamente al componente CardList
+  console.log('Propiedades en CardList:', propiedades); 
 
   if (!Array.isArray(propiedades) || propiedades.length === 0) {
     return <p>No hay propiedades disponibles.</p>;

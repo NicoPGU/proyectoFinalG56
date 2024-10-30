@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { HouseDoorFill, BadgeWc } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';  // Import axios to fetch data
+import axios from 'axios';  
 import '../css/DetallePublicacion.css';
 
 const DetallePublicacion = ({ propiedades_id }) => {
-  const [publicacion, setPublicacion] = useState(null);  // State to hold the publication data
-  const [error, setError] = useState(null);  // State to hold error
+  const [publicacion, setPublicacion] = useState(null);  
+  const [error, setError] = useState(null);  
   const { VITE_API_URL } = import.meta.env;
 
   useEffect(() => {
@@ -30,9 +30,9 @@ const DetallePublicacion = ({ propiedades_id }) => {
     fetchPublicacion();
   }, [propiedades_id]);
   
-  // Render loading state while the publication is being fetched
+  
   if (error) {
-    return <p>{error}</p>;  // Render error message
+    return <p>{error}</p>;  
   }
 
   if (!publicacion) {
