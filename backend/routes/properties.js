@@ -24,7 +24,7 @@ router.put('/:id', verifyToken, async (req, res) => {
     try {
         const result = await pool.query(
             'UPDATE propiedades SET titulo = $1, precio = $2, comuna = $3, habitaciones = $4, banos = $5, descripcion = $6, imagen = $7 WHERE propiedades_id = $8 AND usuario_id = $9 RETURNING *',
-            [titulo, precio, comuna, habitaciones, banos, descripcion, JSON.stringify(imagen), req.params.id, req.userId]
+            [titulo, precio, comuna, habitaciones, banos, descripcion, imagen, req.params.id, req.userId]
         );
         if (result.rows.length === 0) {
             return res.status(404).send('Propiedad no encontrada');
@@ -81,11 +81,11 @@ router.get('/:id', async (req, res) => {
 
 // Crear una nueva propiedad (Create)
 router.post('/', verifyToken, async (req, res) => {
-  const { imagenes, titulo, precio, comuna, habitaciones, banos, descripcion } = req.body;
+  const { imagen, titulo, precio, comuna, habitaciones, banos, descripcion } = req.body;
   try {
     const result = await pool.query(
       'INSERT INTO propiedades (usuario_id, imagen, titulo, precio, comuna, habitaciones, banos, descripcion) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-      [req.userId, JSON.stringify(imagenes), titulo, precio, comuna, habitaciones, banos, descripcion]
+      [req.userId, imagen, titulo, precio, comuna, habitaciones, banos, descripcion]
     );
     res.json(result.rows[0]);
   } catch (error) {
