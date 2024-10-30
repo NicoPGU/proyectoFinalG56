@@ -20,21 +20,29 @@ const upload = multer({ storage: storage });
 
 // Ruta para subir una imagen y actualizar la propiedad
 router.put('/:id', verifyToken, async (req, res) => {
-    const { titulo, precio, comuna, habitaciones, banos, descripcion, imagen } = req.body;
-    try {
-        const result = await pool.query(
-            'UPDATE propiedades SET titulo = $1, precio = $2, comuna = $3, habitaciones = $4, banos = $5, descripcion = $6, imagen = $7 WHERE propiedades_id = $8 AND usuario_id = $9 RETURNING *',
-            [titulo, precio, comuna, habitaciones, banos, descripcion, JSON.stringify(imagen), req.params.id, req.userId]
-        );
-        if (result.rows.length === 0) {
-            return res.status(404).send('Propiedad no encontrada');
-        }
-        res.json(result.rows[0]);
-    } catch (error) {
-        console.error('Error al actualizar la propiedad:', error);
-        res.status(500).send('Error al actualizar la propiedad');
-    }
+  let { titulo, precio, comuna, habitaciones, banos, descripcion, imagen } = req.body;
+
+  // Si `imagen` es un array, toma solo el primer elemento
+  if (Array.isArray(imagen)) {
+      imagen = imagen[0];
+  }
+
+  try {
+      const result = await pool.query(
+          'UPDATE propiedades SET titulo = $1, precio = $2, comuna = $3, habitaciones = $4, banos = $5, descripcion = $6, imagen = $7 WHERE propiedades_id = $8 AND usuario_id = $9 RETURNING *',
+          [titulo, precio, comuna, habitaciones, banos, descripcion, imagen, req.params.id, req.userId]
+      );
+
+      if (result.rows.length === 0) {
+          return res.status(404).send('Propiedad no encontrada');
+      }
+      res.json(result.rows[0]);
+  } catch (error) {
+      console.error('Error al actualizar la propiedad:', error);
+      res.status(500).send('Error al actualizar la propiedad');
+  }
 });
+
 // Obtener todas las propiedades del usuario autenticado (Read)
 router.get('/mis-propiedades', verifyToken, async (req, res) => {
   try {
