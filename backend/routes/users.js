@@ -7,6 +7,8 @@ const pool = require('../db');
 const verifyToken = require('../middleware/verifyToken'); // Import the verifyToken middleware
 
 const SECRET_KEY = process.env.SECRET_KEY;
+console.log('SECRET_KEY:', process.env.SECRET_KEY);
+
 
 // Registro de usuario (Create)
 router.post('/register', async (req, res) => {
