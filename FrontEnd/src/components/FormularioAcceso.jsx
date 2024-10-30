@@ -29,7 +29,7 @@ const FormularioAcceso = () => {
 
     try {
       // Enviar los datos de inicio de sesión al backend
-      const response = await axios.post(`${VITE_API_URL}:3000/api/users/login`, {
+      const response = await axios.post(`${VITE_API_URL}/api/users/login`, {
         email,
         password
       });
