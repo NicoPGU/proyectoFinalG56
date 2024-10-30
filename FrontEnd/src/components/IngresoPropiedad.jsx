@@ -74,7 +74,7 @@ const IngresoPropiedad = () => {
 
   return (
     <Form onSubmit={manejarEnvio}>
-      {/* Campo para Título */}
+    
       <Form.Group as={Row} className="mb-3" controlId="formTitulo">
         <Form.Label column sm={2}>Título</Form.Label>
         <Col sm={10}>
@@ -87,7 +87,7 @@ const IngresoPropiedad = () => {
         </Col>
       </Form.Group>
 
-      {/* Campo para Precio */}
+      
       <Form.Group as={Row} className="mb-3" controlId="formPrecio">
         <Form.Label column sm={2}>Precio</Form.Label>
         <Col sm={10}>
@@ -100,7 +100,7 @@ const IngresoPropiedad = () => {
         </Col>
       </Form.Group>
 
-      {/* Campo para Comuna */}
+    
       <Form.Group as={Row} className="mb-3" controlId="formComuna">
         <Form.Label column sm={2}>Comuna</Form.Label>
         <Col sm={10}>
@@ -113,7 +113,7 @@ const IngresoPropiedad = () => {
         </Col>
       </Form.Group>
 
-      {/* Campo para Habitaciones */}
+      
       <Form.Group as={Row} className="mb-3" controlId="formHabitaciones">
         <Form.Label column sm={2}>Habitaciones</Form.Label>
         <Col sm={10}>
@@ -126,7 +126,7 @@ const IngresoPropiedad = () => {
         </Col>
       </Form.Group>
 
-      {/* Campo para Baños */}
+     
       <Form.Group as={Row} className="mb-3" controlId="formBaños">
         <Form.Label column sm={2}>Baños</Form.Label>
         <Col sm={10}>
@@ -139,7 +139,7 @@ const IngresoPropiedad = () => {
         </Col>
       </Form.Group>
 
-      {/* Campo para Descripción */}
+    
       <Form.Group as={Row} className="mb-3" controlId="formDescripcion">
         <Form.Label column sm={2}>Descripción</Form.Label>
         <Col sm={10}>
@@ -153,7 +153,7 @@ const IngresoPropiedad = () => {
         </Col>
       </Form.Group>
 
-      {/* Selección de imágenes */}
+   
       <Form.Group controlId="formFileMultiple" className="mb-3">
         <Form.Label>Seleccionar imágenes</Form.Label>
         <Form.Control
